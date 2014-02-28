@@ -1,0 +1,73 @@
+<script type="text/javascript">
+    mixpanel.track("Schedule Page Loaded")
+</script>
+<div class="container-fluid lgray-bkg top-fluid">
+  <div class="container segment-top">
+    <center>
+      <h2>Driving Schedule</h2>
+      <p><span class="flatgreen">Reserved</span> days are your assigned driving days. You can <span class="flatred">cancel</span> your reservation <strong>up to two days prior</strong> by clicking on the date ($20 charge applies).</p>
+    </center>
+  </div>
+  <div class="container segment-bottom" role="main">
+    <div class="row" id="dow-header">
+      <div class="col-md-2 col-md-offset-1">
+        
+      </div>
+      <div class="col-md-1">
+        M
+      </div>
+      <div class="col-md-1">
+        Tu
+      </div>
+      <div class="col-md-1">
+        W
+      </div>
+      <div class="col-md-1">
+        Th
+      </div>
+      <div class="col-md-1">
+        F
+      </div>
+      <div class="col-md-1">
+        Sa
+      </div>
+      <div class="col-md-1">
+        Su
+      </div>
+    </div>
+    <div class="row" id="thisweek">
+      <div class="col-md-2 col-md-offset-1">
+        This week
+      </div>
+      <% for idx in 0..6 %>
+        <% car_slot = @car_slots[idx] %>
+        <% if car_slot.locked? %>
+          <%= render 'car_slots/locked_slot', :car_slot => car_slot %>
+        <% else %>
+          <%= form_tag(car_slot_path(:id => car_slot.id, :idx => idx), :method => :patch, remote: true) do %>
+            <div id="slot_idx_<%= idx %>">
+              <%= render 'car_slots/toggleable_slot', :car_slot => car_slot, :idx => idx %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="row" id="nextweek">
+      <div class="col-md-2 col-md-offset-1">
+        Next week
+      </div>
+      <% for idx in 7..13 %>
+        <% car_slot = @car_slots[idx] %>
+        <% if car_slot.locked? %>
+          <%= render 'car_slots/locked_slot', :car_slot => car_slot %>
+        <% else %>
+          <%= form_tag(car_slot_path(:id => car_slot.id, :idx => idx), :method => :patch, remote: true) do %>
+            <div id="slot_idx_<%= idx %>">
+              <%= render 'car_slots/toggleable_slot', :car_slot => car_slot, :idx => idx %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

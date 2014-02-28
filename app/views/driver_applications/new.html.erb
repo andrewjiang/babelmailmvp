@@ -1,0 +1,208 @@
+<script type="text/javascript">
+    mixpanel.track("DriverApp Loaded")
+</script>
+<div class="container-fluid" id="list-top-drivers">
+  <div class="container">
+    <center>
+      <h1>Start driving with Zephyr</h1>
+      <h5>Fill out the drivers application, and Zephyr will reach out to you within 24 hours to get you started</h5>
+    </center>
+
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="container" id="drivers-form" role="main" >
+    <%= form_for(@driver_application) do |f| %>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+          <div class="row form-row">
+            <div class="col-md-12">
+              <%= f.label :first_name, "Name", class: "control-label" %>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <%= f.text_field :first_name, class: "form-control", placeholder: "First" %>
+                  <% if f.object.errors.include?(:first_name) %>
+                    <%= f.label :first_name, "First name is required", class: "error" %>
+                  <% end %>
+                </div>
+                <div class="col-md-6">
+                  <%= f.text_field :last_name, class: "form-control", placeholder: "Last" %>
+                  <% if f.object.errors.include?(:last_name) %>
+                    <%= f.label :last_name, "Last name is required", class: "error" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row form-row">
+            <div class="col-md-12">
+              <%= f.label :phone_number, "Phone", class: "control-label" %>
+            </div>
+            <div class="col-md-12">
+              <%= f.telephone_field :phone_number, class: "form-control", placeholder: "555-555-5555" %>
+              <% if f.object.errors.include?(:phone_number) %>
+                <%= f.label :phone_number, "A phone number is required", class: "error" %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="row form-row">
+            <div class="col-md-12">
+              <%= f.label :email, class: "control-label" %>
+            </div>
+            <div class="col-md-12">
+              <%= f.email_field :email, class: "form-control", placeholder: "wile.e.coyote@acme.com" %>
+              <% if f.object.errors.include?(:email) %>
+                <%= f.label :email, "An email is required", class: "error" %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="row form-row">
+            <div class="col-md-9">
+              <%= f.label :address, class: "control-label" %>
+              <%= f.text_field :address, class: "form-control", placeholder: "123 Main Street, Springfield, IL" %>
+              <% if f.object.errors.include?(:address) %>
+                <%= f.label :address, "A current address is required", class: "error" %>
+              <% end %>
+            </div>
+            <div class="col-md-3">
+              <%= f.label :zip, class: "control-label" %>
+              <%= f.text_field :zip_code, class: "form-control", placeholder: "12345" %>
+              <% if f.object.errors.include?(:zip_code) %>
+                <%= f.label :zip_code, "A zip code is required", class: "error" %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="row form-row">
+            <div class="col-md-12">
+              <%= f.label :facebook_link, class: "control-label" %>
+            </div>
+            <div class="col-md-12">
+              <%= f.text_field :facebook_link, class: "form-control", placeholder: "www.facebook.com/wileecoyote" %>
+              <% if f.object.errors.include?(:facebook_link) %>
+                <%= f.label :facebook_link, "Please enter a link to your Facebook profile page", class: "error" %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="row form-row">
+            <div class="col-md-6">
+              <%= f.label :resume, "Resume", class: "control-label" %>
+              <%= f.file_field :resume, class: "application-file" %>
+              <% if f.object.errors.include?(:resume) %>
+                <%= f.label :resume, "Please upload your resume", class: "error" %>
+              <% end %>
+            </div>
+            <div class="col-md-6">
+              <%= f.label :drivers_license, "Photo of Driver's License", class: "control-label" %>
+              <%= f.file_field :drivers_license, class: "application-file"  %>
+              <% if f.object.errors.include?(:drivers_license) %>
+                <%= f.label :drivers_license, "Please upload a photo", class: "error" %>
+              <% end %>
+            </div>
+          </div>
+          <hr>
+          <div class="row form-row">
+            <div class="col-md-12">
+              <%= f.label :drive_days_per_week, "How many days per week would you like to drive?", class: "control-label" %>
+            </div>
+            <div class="col-md-12" id="popcorn">
+              <div id="popover" data-toggle="popover" data-placement="left" data-content="Zephyr assumes you can commit to renting the car every week on the days you select. Before selecting your preferences, make sure you can drive during PEAK hours or at least 8 hours / day to make it worth the daily fee. Preference will be given to applicants that can work 3 or more consecutive days." title="Time commitment"></div>
+              <%= f.select :drive_days_per_week, options_for_select([["Select a number (1-7)", nil], 1, 2, 3, 4, 5, 6, 7]), {}, {class: "form-control"} %>
+              <% if f.object.errors.include?(:drive_days_per_week) %>
+                <%= f.label :drive_days_per_week, "Please select a value", class: "error" %>
+              <% end %>
+
+            </div>
+
+          </div>
+
+          <div class="row form-row">
+            <div class="col-md-12">
+              <%= f.label :parking_pref, "How would you park at home?", class: "control-label" %>
+            </div>
+            <div class="col-md-12">
+              <%= f.select :parking_pref, options_for_select([["Select an answer", nil], "Garage", "Driveway", "Street"]), {}, {class: "form-control"} %>
+              <% if f.object.errors.include?(:parking_pref) %>
+                <%= f.label :parking_pref, "Please select a value", class: "error" %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="row form-row">
+            <div class="col-md-12">
+              <%= f.label "How'd you hear about us?", for: "select_referred_by", class: "control-label" %>
+            </div>
+            <div class="col-md-12">
+              <%= select_tag "select_referred_by", options_for_select([["Select an answer", nil], "Craigslist", "Facebook", "Friend", "Other"]), class:  "form-control", onchange: 'setReferredBy(this.value);' %>
+              <%= f.text_field :referred_by, id: "referredByOther", style: "display:none", class: "form-control", placeholder: "Please provide referral details" %>
+              <% if f.object.errors.include?(:referred_by) %>
+                <%= f.label :referred_by, "Please select or enter a value", class: "error" %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="row form-row">
+            <div class="col-md-12">
+              <%= f.label :referral_code, "Referral code / referred by (OPTIONAL):", class: "control-label" %>
+            </div>
+            <div class="col-md-12">
+              <%= f.text_field :referral_code, class: "form-control", placeholder: "Enter the referral code or the name of the person who referred you" %>
+              <% if f.object.errors.include?(:referral_code) %>
+                <%= f.label :referral_code, "Please enter a value", class: "error" %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="row form-row">
+            <div>
+              <div class="col-md-9">
+                <%= f.label :referral_email_0, "Refer friends and you'll each earn $50 on their first day", class: "control-label" %>
+              </div>
+              <div class="col-md-3">
+                <%= f.label :is_partner_0, "Driving partner?", class: "control-label" %>
+              </div>
+            </div>
+            <div class="referral-row">
+              <div class="col-md-9">
+                <%= f.email_field :referral_email_0, class: "form-control", placeholder: "alice@gmail.com" %>
+              </div>
+              <div class="col-md-3">
+                <%= f.check_box :is_partner_0 %>
+              </div>
+            </div>
+
+             <div class="referral-row">
+              <div class="col-md-9">
+                <%= f.email_field :referral_email_1, class: "form-control", placeholder: "bob@gmail.com" %>
+              </div>
+              <div class="col-md-3">
+                <%= f.check_box :is_partner_1 %>
+              </div>
+            </div>
+
+             <div class="referral-row">
+              <div class="col-md-9">
+                <%= f.email_field :referral_email_2, class: "form-control", placeholder: "carol@gmail.com" %>
+              </div>
+              <div class="col-md-3">
+                <%= f.check_box :is_partner_2 %>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row form-submit">
+            <%= f.submit "SUBMIT", class: "btn btn-lg btn-info" %>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+</div>
