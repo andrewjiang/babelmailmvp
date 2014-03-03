@@ -244,7 +244,7 @@
 		background-repeat: no-repeat;
 		background-size: 100%;
 		background-position: 0px -50px;
-		min-height: 500px;
+		min-height: 550px;
 		max-width: 2000px;
 		border-bottom: 1px solid #fafbfc;
 	}
@@ -288,6 +288,61 @@
 		color: #fff;
 		font-size: 28px;
 	}
+
+	#languages-and-pricing{
+		min-height: 100px;
+		background-color: #fff;
+		border-bottom: 1px solid #e5e5e5;
+		padding: 60px 0px 100px 0px;
+		color: rgba(22, 160, 133, 1);
+		font-size: 16px;
+		text-align: center;
+	}
+	#languages-and-pricing h1{
+		margin: 50px 0px 50px 0px;
+		color: rgba(52, 73, 94,1.0);
+		font-size: 48px;
+		font-family: 'Varela';
+	}
+	#languages-and-pricing h3{
+		margin: 30px 0px 30px 0px;
+		color: #333;
+		font-family: 'Varela';
+	}
+	#languages-and-pricing span{
+		padding: 10px 0px;
+		margin-left: 20%;
+		color: #333
+	}
+	#languages-and-pricing table{
+		text-align: left;
+	}
+	#languages-and-pricing tr{
+		padding: 30px 0px;
+	}
+	#languages-and-pricing td{
+		border: 1px solid #ccc;
+	}
+	.flag-small{
+		box-shadow:1px 1px 7px rgba(0,0,0,0.6);
+		padding: 1px;
+		margin: 4px;
+		height: 40px;
+	}
+	.coming-soon{
+		background-color: #eee;
+	}
+	.box-well{
+		border: 1px solid rgba(27, 167, 140, 1);
+		padding: 20px;
+		font-size: 32px;
+		font-weight: 100;
+		margin-top: 50px;
+		margin-bottom: 20px;
+		background-color: rgba(22, 160, 133, 1);
+		color: #fafbfc;
+	}
+
 	#how-it-works{
 		min-height: 100px;
 		background-color: rgba(52, 73, 94,1.0);
@@ -457,7 +512,7 @@
 	.email-visual h1{
 		margin: 50px 0px 50px 0px;
 		color: rgba(70, 71, 72,1.0);
-		font-size: 48px;
+		font-size: 40px;
 		font-family: 'Varela';
 		text-align: center;
 	}
@@ -471,6 +526,7 @@
 	.email-visual-recipient .email-visual-title{
 		background-color: rgba(70, 71, 72, 1);
 	}
+
 	.received{
 		opacity: 0.7;
 	}
@@ -478,6 +534,24 @@
 		padding-top: 90px;
 		border-bottom: 5px dashed #aaa;
 		position: relative;
+	}
+	.fish-visual-left{
+		position: absolute;
+		width: 80px;
+		top:	60px;
+		left: 30%;
+	}
+	.fish-visual-right{
+		position: absolute;
+		width: 80px;
+		top:	60px;
+		right: 30%;
+		-moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
 	}
 	.arrow .glyphicon-chevron-right{
 		position: absolute;

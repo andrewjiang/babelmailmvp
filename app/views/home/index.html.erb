@@ -12,7 +12,7 @@
             <span class="hero-type">Send human-translated emails seamlessly</span>
             <span class="hero-type"><h3>Write in your language and Babel Mail directly translates both emails you send and receive </h3></span>
             <br><br>
-            <a class="btn btn-lg button-default" href="#"><span>Try for FREE</span></a>
+            <a class="btn btn-lg button-default" href="#"><span>Try it FREE</span></a>
           </div>
         </div>
       </div>
@@ -44,15 +44,42 @@
   </div>
 </div>
 <div class="container-fluid">
+  <div id="languages-and-pricing">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h1>Six major languages. One simple price.</h1>
+          <div>
+            <table class="table">
+              <tr>
+                <td><%= image_tag "flags/China.png", class: "flag-small" %><span><strong>Chinese</span></td>
+                <td><%= image_tag "flags/Japan.png", class: "flag-small" %><span>Japanese</span></td>
+                <td><%= image_tag "flags/South_Korea.png", class: "flag-small" %><span>Korean</span></td>
+              </tr>
+              <tr class="coming-soon">
+                <td><%= image_tag "flags/Spain.png", class: "flag-small" %><span>Spanish</span></td>
+                <td><%= image_tag "flags/France.png", class: "flag-small" %><span>French</span></td>
+                <td><%= image_tag "flags/Germany.png", class: "flag-small" %><span>German</span></td>
+              </tr>
+            </table>
+          </div>
+          <div class="box-well">Only 2¢ per Word
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
   <div id="large-visual">
     <div class="container">
       <div class="row email-visual">
-        <h1>What it looks like</h1>
+        <h1>Write your email, we do all the rest</h1>
         <div class="col-md-5 email-visual-sender">
           <div class="email-visual-title">
             <div class="row">
               <div class="col-md-12">
-                To: <strong>Andrew (江汉琪)</strong>
+                Sent to: <strong>Andrew (江汉琪)</strong>
               </div>
               <div class="col-md-12">
                 Subject: <strong>Hi from California!</strong>
@@ -65,16 +92,18 @@
             <br><br>
             Sincerely,<br>
             John
+
           </div>
         </div>
         <div class="col-md-2 arrow">
           <span class="glyphicon glyphicon-chevron-right"></span>
+          <%= image_tag "babel-small.png", class: "fish-visual-right"%>
         </div>
         <div class="col-md-5 email-visual-recipient">
           <div class="email-visual-title">
             <div class="row">
               <div class="col-md-12">
-                From: <strong>John</strong>
+                Received by: <strong>Andrew (江汉琪)</strong>
               </div>
               <div class="col-md-12">
                 Subject: <strong>你好从加州</strong>
@@ -100,7 +129,7 @@
           <div class="email-visual-title">
             <div class="row">
               <div class="col-md-12">
-                From: <strong>Andrew (江汉琪)</strong>
+                Received by: <strong>John</strong>
               </div>
               <div class="col-md-12">
                 Subject: <strong>RE:Hi from California!</strong>
@@ -109,21 +138,21 @@
             </div>
           </div>
           <div class="email-visual-body">
-            Hi Andrew! How are you doing? We missed you at the holiday party this year. 
-            When are you coming for a visit?
+            John, it is a pleasure to hear from you. I am doing very well and planning on visiting the San Francisco office next month.
             <br><br>
-            Sincerely,<br>
-            John
+            Best,<br>
+            Andrew
           </div>
         </div>
         <div class="col-md-2 arrow">
+          <%= image_tag "babel-small.png", class: "fish-visual-left"%>
           <span class="glyphicon glyphicon-chevron-left"></span>
         </div>
         <div class="col-md-5 email-visual-recipient">
           <div class="email-visual-title">
             <div class="row">
               <div class="col-md-12">
-                To: <strong>John</strong>
+                Sent to: <strong>John</strong>
               </div>
               <div class="col-md-12">
                 Subject: <strong>RE:你好从加州</strong>
@@ -132,10 +161,10 @@
             </div>
           </div>
           <div class="email-visual-body">
-            江先生, 你好吗？我们错过了你在圣诞派对。你什么时候会来看看我们？
+            John, 我很高兴收到你的来信。我很好。下个月，我打算参观旧金山办事处。
             <br><br>
             恭祝,<br>
-            John
+            江汉琪
           </div>
         </div>
       </div>
@@ -147,12 +176,12 @@
     </div>
   </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid" id="try-it-free">
   <div id="apply-today">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <center><a class="btn btn-lg button-default" href="#"><span>Try for FREE today</span></a><center>
+          <center><a class="btn btn-lg button-default" href="#"><span>Try it FREE</span></a><center>
           <br>
         </div>
       </div>
